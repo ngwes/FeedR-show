@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - feedr
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+  pulsar:
+    image: apachepulsar/pulsar
+    container_name: pulsar
+    restart: unless-stopped
+    networks:
+      - feedr
+    ports:
+      - 6650:6650
+      - 8080:8080
+    command: bin/pulsar standalone
+
+networks:
+  feedr:
+    name: feedr
+
+volumes:
+  redis:
+    driver: local
