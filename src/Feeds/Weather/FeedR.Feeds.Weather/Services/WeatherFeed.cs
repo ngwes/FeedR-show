@@ -7,7 +7,7 @@ namespace FeedR.Feeds.Weather.Services
         //TODO: Spostare configurazione Api e tempo di polling in appsetting e ignettarli con IoC
 
         private readonly HttpClient _client;
-        private readonly string ApiKey = "2fb21af5ceea4c28bd0170019221309";
+        private readonly string ApiKey = "";
         private readonly string ApiUrl = "http://api.weatherapi.com/v1/current.json";
 
         public WeatherFeed(HttpClient client)
